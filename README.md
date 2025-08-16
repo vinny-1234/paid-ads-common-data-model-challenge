@@ -66,3 +66,49 @@ To build the seeds, run `dbt seed` in the dbt Cloud console. Once the seeds have
 
 	Q: What if there're no MCDM sctructure field in raw datasource data?
 	A: So you started understending the main goal of this task :-)	Suggest wich field or fields corresponds to MCDM ones by their meaning. If there're no such fields, then probably datasource just doesnt got them
+
+
+
+### MY SUBMISSION
+
+
+# Paid Ads Common Data Model Challenge
+
+## Overview
+This project implements a dbt-based data model to unify paid ads data from multiple sources 
+(Bing, Facebook, TikTok, Twitter) and calculate cross-channel KPIs.  
+
+It was built as part of the GrowthShop challenge, forked from [Valdimir’s repo](https://github.com/<valmir-handle>/paid-ads-common-data-model-challenge).
+
+---
+
+## What I Implemented
+- **Staging Models**:  
+  - `stg_bing.sql`  
+  - `stg_facebook.sql`  
+  - `stg_tiktok.sql`  
+  - `stg_twitter.sql`  
+  These standardize raw source data into a clean, consistent schema.
+
+- **Consolidated Model**:  
+  - `paid_ads_basic_performance.sql`  
+  Brings all staging data together into a unified table with comparable metrics.
+
+- **Utility Macro**:  
+  - `safe_divide.sql`  
+  Helps avoid divide-by-zero errors when calculating ratios.
+
+- **KPI Model**:  
+  - `ads_kpi.sql`  
+  Provides KPIs such as CTR, CPC, CPM, ROAS, and total conversions.
+
+---
+
+## Aggregations Tested
+- Impressions, Clicks, Spend, and Revenue aggregated by channel and date.
+- Verified correctness in **BigQuery** sandbox.
+- Example check:
+  ```sql
+  SELECT channel, SUM(clicks) AS total_clicks
+  FROM ads_kpi
+  GROUP BY channel;
