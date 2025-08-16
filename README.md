@@ -112,3 +112,11 @@ It was built as part of the GrowthShop challenge, forked from [Valdimir’s repo
   SELECT channel, SUM(clicks) AS total_clicks
   FROM ads_kpi
   GROUP BY channel;
+
+
+
+---
+
+## Deliverables
+- **GitHub Repo (this fork)**: [My Forked Repo](https://github.com/vinny-1234/paid-ads-common-data-model-challenge)  
+- **Looker Dashboard (Final)**: [View Dashboard](https://lookerstudio.google.com/reporting/c6abc4a9-17f7-4aff-adf4-274664e31ccd)  
